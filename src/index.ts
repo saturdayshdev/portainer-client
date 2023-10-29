@@ -32,8 +32,30 @@ class PortainerClient {
     }
   }
 
-  async getStacks(): Promise<any> {
+  isTokenExpired(): boolean {
+    return Date.now() > this.token.exp * 1000
+  }
+
+  async getStacks(): Promise<PortainerStack[]> {
+    if (this.isTokenExpired()) {
+      await this.authenticate()
+    }
+
     const { data } = await this.axios.get<PortainerStack[]>('/api/stacks', {
+      headers: {
+        Authorization: `Bearer ${this.token.jwt}`,
+      },
+    })
+
+    return data
+  }
+
+  async getStack(id: number): Promise<PortainerStack> {
+    if (this.isTokenExpired()) {
+      await this.authenticate()
+    }
+
+    const { data } = await this.axios.get<PortainerStack>(`/api/stacks/${id}`, {
       headers: {
         Authorization: `Bearer ${this.token.jwt}`,
       },
