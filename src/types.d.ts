@@ -1,6 +1,60 @@
+interface InitArgs {
+  baseUrl: string
+  username: string
+  password: string
+}
+
 interface Token {
   jwt: string
   exp: number
+}
+
+interface CreateStandaloneStackArgs {
+  endpointId: number
+  stackConfig: StandaloneStackConfig
+}
+
+interface CreateSwarmStackArgs {
+  endpointId: number
+  stackConfig: SwarmStackConfig
+}
+
+interface GetStacksArgs {
+  id: number
+}
+
+interface UpdateStackArgs {
+  id: number
+  endpointId: number
+  stackId: number
+  stackConfig: StandaloneStackConfig | SwarmStackConfig
+}
+
+interface DeleteStackArgs {
+  id: number
+  endpointId: number
+  external: boolean
+}
+
+interface StandaloneStackConfig {
+  env?: {
+    [key: string]: string
+  }
+  fromAppTemplate?: boolean
+  name: string
+  stackFileContent: string
+  swarmID: string
+  webhook?: string
+}
+
+interface SwarmStackConfig {
+  env?: {
+    [key: string]: string
+  }
+  fromAppTemplate?: boolean
+  name: string
+  stackFileContent: string
+  webhook?: string
 }
 
 interface PortainerToken {
