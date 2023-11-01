@@ -1,0 +1,16 @@
+{
+  "name": "@saturdayshdev/portainer-client",
+  "version": "0.1.0",
+  "description": "Client for Portainer's API.",
+  "main": "dist/index.js",
+  "keywords": [
+    "portainer",
+    "docker"
+  ],
+  "author": "Oskar Wójcikiewicz",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "jwt-decode": "^4.0.0"
+  }
+}
