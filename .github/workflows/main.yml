@@ -29,7 +29,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
-      - run: npm install --include=dev \
+      - run: npm install --include=dev
       - run: npm run build
       - run: mv package.json dist
       - run: mv README.md dist
