@@ -1,10 +1,11 @@
 {
   "name": "@saturdayshdev/portainer-client",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": "https://github.com/saturdayshdev/portainer-client",
   "private": false,
   "description": "Client for Portainer's API.",
   "main": "dist/index.js",
+  "types": "src/types.d.ts",
   "scripts": {
     "build": "tsc"
   },
