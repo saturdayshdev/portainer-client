@@ -26,8 +26,7 @@ interface GetStacksArgs {
 interface UpdateStackArgs {
   id: number
   endpointId: number
-  stackId: number
-  stackConfig: StandaloneStackConfig | SwarmStackConfig
+  stackConfig: StackUpdateConfig
 }
 
 interface DeleteStackArgs {
@@ -44,6 +43,17 @@ interface StandaloneStackConfig {
   name: string
   stackFileContent: string
   swarmID: string
+  webhook?: string
+}
+
+interface StackUpdateConfig {
+  env?: {
+    [key: string]: string
+  }
+  prune: boolean
+  pullImage: boolean
+  rollbackTo: number
+  stackFileContent: string
   webhook?: string
 }
 

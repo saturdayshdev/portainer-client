@@ -1,6 +1,6 @@
 {
   "name": "@saturdayshdev/portainer-client",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "repository": "https://github.com/saturdayshdev/portainer-client",
   "private": false,
   "description": "Client for Portainer's API.",
