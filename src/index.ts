@@ -8,7 +8,7 @@ class PortainerClient {
   private readonly axios: Axios
   private token: Token
 
-  constructor(args: InitArgs) {
+  constructor(args: { baseUrl: string; username: string; password: string }) {
     this.baseUrl = `${args.baseUrl}/api`
     this.username = args.username
     this.password = args.password
