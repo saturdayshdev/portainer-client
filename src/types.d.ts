@@ -20,7 +20,12 @@ interface CreateSwarmStackArgs {
 }
 
 interface GetStacksArgs {
+  endpointId?: number
+}
+
+interface GetStackArgs {
   id: number
+  endpointId?: number
 }
 
 interface UpdateStackArgs {

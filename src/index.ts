@@ -78,10 +78,15 @@ class PortainerClient {
     return data
   }
 
-  private async getStacks(): Promise<PortainerStack[]> {
+  private async getStacks(args: GetStackArgs): Promise<PortainerStack[]> {
     await this.reAuthenticate()
 
-    const { data } = await this.axios.get<PortainerStack[]>('/stacks', {
+    const endpointId = args.endpointId ? args.endpointId : undefined
+    const url = endpointId
+      ? `/stacks?filters={"endpointId":${endpointId}}`
+      : '/stacks'
+
+    const { data } = await this.axios.get<PortainerStack[]>(url, {
       headers: {
         Authorization: `Bearer ${this.token.jwt}`,
       },
@@ -90,7 +95,7 @@ class PortainerClient {
     return data
   }
 
-  private async getStack(args: GetStacksArgs): Promise<PortainerStack> {
+  private async getStack(args: GetStackArgs): Promise<PortainerStack> {
     await this.reAuthenticate()
 
     const { data } = await this.axios.get<PortainerStack>(
