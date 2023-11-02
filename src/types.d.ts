@@ -41,13 +41,10 @@ interface DeleteStackArgs {
 }
 
 interface StandaloneStackConfig {
-  env?: {
-    [key: string]: string
-  }
+  env?: {key: string, value: string}[]
   fromAppTemplate?: boolean
   name: string
   stackFileContent: string
-  swarmID: string
   webhook?: string
 }
 
